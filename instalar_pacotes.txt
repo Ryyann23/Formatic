@@ -1,0 +1,33 @@
+Isntalar pacote supabase:
+(flutter pub add supabase_flutter)
+
+rodar
+flutter run
+
+Profiles:
+
+Headers:
+  apikey: SUA_CHAVE_ANONIMA
+  Content-Type: application/json
+
+  Authorization: Bearer aqui é o token do usuáio
+
+https://enenypufgzvuwyznkxat.supabase.co/rest/v1/profiles?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVuZW55cHVmZ3p2dXd5em5reGF0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjEzNDgwMDksImV4cCI6MjA3NjkyNDAwOX0.U3xTNecMPuVdZhzfFTp4fKEPw3cgSUiAWxb6d8jAOWQ
+
+Criar conta
+POST https://enenypufgzvuwyznkxat.supabase.co/auth/v1/signup
+
+login
+POST https://enenypufgzvuwyznkxat.supabase.co/auth/v1/token?grant_type=password
+
+todos campos
+https://enenypufgzvuwyznkxat.supabase.co/rest/v1/profiles
+
+deletar
+DELETE https://enenypufgzvuwyznkxat.supabase.co/rest/v1/profiles?id=eq.ID_DO_USUARIO
+https://enenypufgzvuwyznkxat.supabase.co/rest/v1/profiles?id=eq.24cf5efa-1996-4201-9db8-b5451fa051bd
+
+atualização parcial
+PATCH https://seu-projeto.supabase.co/rest/v1/profiles?id=eq.SEU_USER_ID
+
+ff
