@@ -6,7 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:formatic/features/auth/pages/login_page.dart';
 import 'package:formatic/features/home/pages/home_page.dart';
 import 'package:formatic/services/auth/auth_service.dart';
-import 'package:formatic/services/core/supabase_config.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 // window_size allows setting the native window size on desktop platforms so
 // we can emulate a mobile resolution while running on Windows/Mac/Linux.
@@ -54,7 +54,10 @@ Future<void> main() async {
   await dotenv.load(fileName: ".env");
 
   // Inicializa o Supabase
-  await SupabaseConfig.initialize();
+  await Supabase.initialize(
+    url: 'https://dcifeiwtccrjaxafnuya.supabase.co',
+    anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
+  );
 
   runApp(MyApp());
 }

@@ -13,7 +13,7 @@ class ProfileService {
   // CONSULTAR PERFIL
   Future<UserProfile?> getProfile(String userId) async {
     final response = await client
-        .from('profiles')
+        .from('user_profiles')
         .select()
         .eq('id', userId)
         .single();
@@ -22,17 +22,17 @@ class ProfileService {
 
   // CRIAR PERFIL
   Future<void> createProfile(UserProfile profile) async {
-    await client.from('profiles').insert(profile.toJson());
+    await client.from('user_profiles').insert(profile.toJson());
   }
 
   // ATUALIZAR PARCIALMENTE
   Future<void> patchProfile(String userId, Map<String, dynamic> updates) async {
-    await client.from('profiles').update(updates).eq('id', userId);
+    await client.from('user_profiles').update(updates).eq('id', userId);
   }
 
   // DELETAR PERFIL
   Future<void> deleteProfile(String userId) async {
-    await client.from('profiles').delete().eq('id', userId);
+    await client.from('user_profiles').delete().eq('id', userId);
   }
 
   Future<String?> uploadAvatarFile(File file, String userId) async {

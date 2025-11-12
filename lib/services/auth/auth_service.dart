@@ -12,17 +12,17 @@ class AuthService {
     String? phone,
     String? avatarUrl,
   }) async {
-    final response = await client.auth.signUp(email: email, password: password);
-
-    if (response.user != null) {
-      await client.from('profiles').insert({
-        'id': response.user!.id,
+    // O perfil é criado automaticamente pelo trigger do banco
+    // Passamos o username nos metadados para o trigger usar
+    final response = await client.auth.signUp(
+      email: email,
+      password: password,
+      data: {
         'username': username,
-        'email': email,
-        'phone': phone,
-        'avatar_url': avatarUrl,
-      });
-    }
+        if (phone != null) 'phone': phone,
+        if (avatarUrl != null) 'avatar_url': avatarUrl,
+      },
+    );
 
     return response;
   }
